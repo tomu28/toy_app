@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::Base#継承
   protect_from_forgery with: :exception
 
   def hello
