@@ -1,24 +1,29 @@
-# README
+# 2章
+## 2章まとめ
+- Scaffold機能でコードを自動生成すると、Webのあらゆる部分からモデルデータにアクセスしてやりとりできるようになる
+- Scaffoldは何よりも手っ取り早いのがとりえだが、これを元にRailsを理解するには向いていない
+- RailsではWebアプリケーションの構成にMVC (Model-View-Controller) というモデルを採用している
+- Railsが解釈するRESTには、標準的なURLセットと、データモデルとやりとりするためのコントローラアクションが含まれている
+- Railsではデータのバリデーション (validation) がサポートされており、データモデルの属性の値に制限をかけることができる
+- Railsには、さまざまなデータモデル同士を関連付けを定義するための組み込み関数が多数用意されている
+- Railsコンソールを使うと、コマンドラインからRailsアプリケーションとやりとりすることができる
+<https://railstutorial.jp/chapters/toy_app?version=5.1#cha-a_toy_app>より
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 2章でGit関連で躓いたこと
 
-Things you may want to cover:
+- .ignore ファイルの範囲指定がうまくいっていなかった
+- .idea ディレクトリでコンフリクトが起きていたので、ローカルとリモートで削除してrai
+- deployブランチでmasterをpull\
+　をして解決
 
-* Ruby version
+## 問題点
+### herokuでデプロイが出来ていない
+原因として考えられるのは
+- ローカルでは問題なく動いていたので、\
+herokuの本番環境でデータベースのマイグレーションを行なっていないこと
 
-* System dependencies
+以下を行い解決しました
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    heroku run rails db:migrate
+をiTermより実行して、本番データベースのマイグレーションを行なった\
+次にホームページからherokuのデプロイを行なったところ出来た
